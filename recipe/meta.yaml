@@ -23,6 +23,7 @@ requirements:
     - wheel
     - setuptools
   run:
+    - setuptools
     - python
 
 test:
