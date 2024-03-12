@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - conda-pack = conda_pack.cli:main
 
@@ -21,13 +21,16 @@ requirements:
   host:
     - python
     - pip
+    - wheel
   run:
-    - setuptools
     - python
 
 test:
+  requires:
+    - pip
   commands:
     - conda-pack --help
+    - pip check
   imports:
     - conda_pack
 
