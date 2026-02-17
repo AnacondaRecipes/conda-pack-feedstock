@@ -51,6 +51,10 @@ about:
   dev_url: https://github.com/conda/conda-pack
 
 extra:
+  skip-lints:
+    # setuptools is a runtime dependency
+    - python_build_tool_in_run
+    - python_build_tools_in_host
   recipe-maintainers:
     - jcrist
     - mcg1969
