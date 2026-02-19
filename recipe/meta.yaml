@@ -1,6 +1,6 @@
 {% set name = "conda-pack" %}
-{% set version = "0.8.1" %}
-{% set sha256 = "a962ac16cfa8b61220a73f146fc53ddb94c5c4cb4c5ea64fdd63921cb4902fed" %}
+{% set version = "0.9.1" %}
+{% set sha256 = "a501e639dad99b48bc91d65c26d630638a8b91c846d89e52d8763eb4bf323976" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +21,9 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=61.0
+    - setuptools_scm >=6.2
+    - toml
   run:
     - setuptools
     - python
@@ -49,6 +51,10 @@ about:
   dev_url: https://github.com/conda/conda-pack
 
 extra:
+  skip-lints:
+    # setuptools is a runtime dependency
+    - python_build_tool_in_run
+    - python_build_tools_in_host
   recipe-maintainers:
     - jcrist
     - mcg1969
